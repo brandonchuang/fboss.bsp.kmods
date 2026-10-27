@@ -25,6 +25,11 @@
 
 enum color_profile {WHITE, CYAN, BLUE, PINK, RED, ORANGE, AMBER, GREEN};
 
+enum fbiob_led_type {
+	FBIOB_PORT_LED,
+	FBIOB_ELSFP_LED,
+};
+
 static enum led_brightness brightness_get(struct led_classdev *led_cdev)
 {
 	u32 data;
@@ -156,7 +161,7 @@ static int port_led_probe(struct auxiliary_device *auxdev,
 					struct fbiob_aux_adapter, auxdev);
 	struct fbiob_aux_data *pdata = &aux_adap->data;
 
-	is_elsfp = !strcmp(id->name, FBOSS_IOB_PCI_DRIVER".elsfp_led");
+	is_elsfp = id->driver_data == FBIOB_ELSFP_LED;
 
 	/*
 	 * Port number (1-based integer) must be supplied for non-ELSFP LEDs.
@@ -206,8 +211,14 @@ error:
 }
 
 static const struct auxiliary_device_id fboss_iob_led_ids[] = {
-	{ .name = FBOSS_IOB_PCI_DRIVER".port_led" },
-	{ .name = FBOSS_IOB_PCI_DRIVER".elsfp_led" },
+	{
+		.name = FBOSS_IOB_PCI_DRIVER".port_led",
+		.driver_data = FBIOB_PORT_LED,
+	},
+	{
+		.name = FBOSS_IOB_PCI_DRIVER".elsfp_led",
+		.driver_data = FBIOB_ELSFP_LED,
+	},
 	{},
 };
 MODULE_DEVICE_TABLE(auxiliary, fboss_iob_led_ids);
