@@ -72,6 +72,20 @@ static const struct regbit_sysfs_config sysfs_files[] = {
 		.num_bits = 8,
 	},
 	{
+		.name = "xp3r3v_left_en",
+		.mode = REGBIT_FMODE_RW,
+		.reg_addr = 7,
+		.bit_offset = 1,
+		.num_bits = 1,
+	},
+	{
+		.name = "xp3r3v_right_en",
+		.mode = REGBIT_FMODE_RW,
+		.reg_addr = 7,
+		.bit_offset = 2,
+		.num_bits = 1,
+	},
+	{
 		.name = "j3a_pwr_en",
 		.mode = REGBIT_FMODE_RW,
 		.reg_addr = 7,

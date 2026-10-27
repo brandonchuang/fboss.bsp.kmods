@@ -130,6 +130,13 @@ static const struct regbit_sysfs_config sysfs_files[] = {
 		.bit_offset = 0,
 		.num_bits = 8,
 	},
+	{
+		.name = "come_pwr_ctrl",
+		.mode = REGBIT_FMODE_RW,
+		.reg_addr = 20,
+		.bit_offset = 1,
+		.num_bits = 1,
+	}
 };
 
 /*

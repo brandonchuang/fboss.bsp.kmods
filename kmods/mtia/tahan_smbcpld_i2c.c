@@ -79,6 +79,20 @@ static const struct regbit_sysfs_config sysfs_files[] = {
 		.num_bits = 1,
 	},
 	{
+		.name = "xp3r3v_left_en",
+		.mode = REGBIT_FMODE_RW,
+		.reg_addr = 8,
+		.bit_offset = 4,
+		.num_bits = 1,
+	},
+	{
+		.name = "xp3r3v_right_en",
+		.mode = REGBIT_FMODE_RW,
+		.reg_addr = 8,
+		.bit_offset = 5,
+		.num_bits = 1,
+	},
+	{
 		.name = "asic_ot_status_changed",
 		.mode = REGBIT_FMODE_RO,
 		.reg_addr = SMB_REG_ASIC_OVER_TEMP_CTRL,
