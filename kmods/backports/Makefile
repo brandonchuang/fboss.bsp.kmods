@@ -10,6 +10,7 @@ obj-m += bp4f_isl68137.o
 obj-m += bp4f_lm25066.o
 obj-m += bp4f_ltc4286.o
 obj-m += bp4f_max31790.o
+obj-m += bp4f_max34440.o
 obj-m += bp4f_mp2869.o
 obj-m += bp4f_mp2891.o
 obj-m += bp4f_mp2993.o
